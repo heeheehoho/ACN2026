@@ -1,0 +1,11 @@
+venv/
+raw/
+data/
+data_gt/
+work/
+runs_official/
+evidence*/
+FundusGAN/
+*.pth
+*.pkl
+__pycache__/
