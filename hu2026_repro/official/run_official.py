@@ -32,6 +32,7 @@ def run(cmd, cwd=None, env=None, dry=False, log=None):
         Path(log).parent.mkdir(parents=True, exist_ok=True)
         with open(log, "a") as fh:
             fh.write("$ " + line + "\n")
+            fh.flush()
             p = subprocess.run([str(c) for c in cmd], cwd=cwd, env=e, stdout=fh, stderr=subprocess.STDOUT)
     else:
         p = subprocess.run([str(c) for c in cmd], cwd=cwd, env=e)
@@ -52,6 +53,9 @@ def main():
     ap.add_argument("--gan-epochs", default="50,50", help="n_epochs,n_epochs_decay (paper 50,50; repo default 10,10)")
     ap.add_argument("--gan-size", type=int, default=512)
     ap.add_argument("--gan-extra", default="", help="extra Fundus_GAN args, e.g. '--gpu_ids -1'")
+    ap.add_argument("--gan-retries", type=int, default=3, help="auto-resume attempts after a crash")
+    ap.add_argument("--gan-cudnn", default="on", choices=["on", "off"],
+                    help="off = torch.backends.cudnn.enabled=False (slower; workaround for CUDNN_STATUS_EXECUTION_FAILED)")
     ap.add_argument("--rounds", type=int, default=20)
     ap.add_argument("--local-epochs", type=int, default=5)
     ap.add_argument("--scale", type=float, default=0.5, help="official default image scale for the U-Net")
@@ -80,18 +84,43 @@ def main():
     ckpt_dir, res_dir = work / T / "gan_checkpoints", work / T / "gan_results"
     if "gan" in stages:
         ne, nd = a.gan_epochs.split(",")
+        total = int(ne) + int(nd)
+        # official scripts imported from Fundus_GAN/ (cwd); optionally with cuDNN disabled
+        launcher = [PY] if a.gan_cudnn == "on" else [
+            PY, "-c", "import sys, runpy, torch; torch.backends.cudnn.enabled = False; "
+                      "script = sys.argv[1]; sys.argv = sys.argv[1:]; runpy.run_path(script, run_name='__main__')"]
+
+        def last_epoch(name):
+            eps = [int(p.name.split("_")[0]) for p in (ckpt_dir / name).glob("*_net_G.pth") if p.name.split("_")[0].isdigit()]
+            return max(eps, default=0)
+
         for s in sources:
             name = f"{T}_{s}"
             dr = work / T / "gan_data" / s
             opts = ["--dataroot", dr, "--name", name, "--model", "ppfg", "--CUT_mode", "cut",
                     "--checkpoints_dir", ckpt_dir, "--load_size", a.gan_size, "--crop_size", a.gan_size] + shlex.split(a.gan_extra)
-            if not (ckpt_dir / name / "latest_net_G.pth").exists():
-                # official train.py saves 'latest' only every --save_epoch_freq (5) epochs -> force a save at the last epoch
-                run([PY, "train.py"] + opts + ["--n_epochs", ne, "--n_epochs_decay", nd, "--display_id", "0", "--no_html",
-                                               "--save_epoch_freq", int(ne) + int(nd)],
-                    cwd=gan_dir, dry=a.dry_run, log=logs / f"gan_train_{name}.log")
+            for attempt in range(a.gan_retries + 1):
+                done = 0 if a.dry_run else last_epoch(name)
+                if done >= total:
+                    break
+                # save every epoch (official default: every 5) so a crash loses at most one epoch;
+                # resume = official --continue_train from 'latest' (optimizer state is not saved by the official code)
+                resume = ["--continue_train", "--epoch_count", done + 1] if done > 0 else []
+                if done > 0:
+                    print(f"{name}: resuming at epoch {done + 1}/{total} (attempt {attempt + 1})")
+                try:
+                    run(launcher + ["train.py"] + opts + ["--n_epochs", ne, "--n_epochs_decay", nd, "--display_id", "0",
+                                                         "--no_html", "--save_epoch_freq", 1] + resume,
+                        cwd=gan_dir, dry=a.dry_run, log=logs / f"gan_train_{name}.log")
+                except SystemExit as e:
+                    print(f"{name}: training crashed ({e}); will resume from the last saved epoch")
+                if a.dry_run:
+                    break
+            if not a.dry_run and last_epoch(name) < total:
+                raise SystemExit(f"{name}: GAN not finished after {a.gan_retries + 1} attempts "
+                                 f"(last saved epoch {last_epoch(name)}/{total}). Try --gan-cudnn off")
             if not (res_dir / name / "train_latest" / "images" / "fake_B").is_dir():
-                run([PY, "test.py"] + opts + ["--phase", "train", "--num_test", "1000000", "--results_dir", res_dir],
+                run(launcher + ["test.py"] + opts + ["--phase", "train", "--num_test", "1000000", "--results_dir", res_dir],
                     cwd=gan_dir, dry=a.dry_run, log=logs / f"gan_test_{name}.log")
 
     if "fuse" in stages:
