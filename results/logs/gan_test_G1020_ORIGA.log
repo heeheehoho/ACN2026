@@ -1,0 +1,200 @@
+$ (cd /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN && '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/bin/python' test.py --dataroot '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA' --name G1020_ORIGA --model ppfg --CUT_mode cut --checkpoints_dir '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints' --load_size 512 --crop_size 512 --phase train --num_test 1000000 --results_dir '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_results')
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py:143: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler()
+----------------- Options ---------------
+                 CUT_mode: cut                           	[default: ppfg]
+               batch_size: 1                             
+          checkpoints_dir: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints	[default: ./checkpoints]
+                crop_size: 512                           
+                 dataroot: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+          display_winsize: 512                           
+               easy_label: experiment_name               
+                    epoch: latest                        
+                     eval: False                         
+        flip_equivariance: False                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+lambda_deep_feature_matching: 5                             
+  lambda_feature_matching: 2                             
+               lambda_fft: 1e-07                         
+lambda_shallow_feature_matching: 1                             
+                load_size: 512                           
+         max_dataset_size: inf                           
+                    model: ppfg                          	[default: cut]
+               n_layers_D: 3                             
+                     name: G1020_ORIGA                   	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic                         
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks                
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: False                         
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+                 num_test: 1000000                       	[default: 1200]
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+         random_scale_max: 3.0                           
+              results_dir: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_results	[default: ./results/]
+           serial_batches: False                         
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+dataset [UnalignedDataset] was created
+model [CUTModel] was created
+creating web directory /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_results/G1020_ORIGA/train_latest
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 11.378 M
+-----------------------------------------------
+processing (0000)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/001.png']
+processing (0005)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/006.png']
+processing (0010)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/011.png']
+processing (0015)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/016.png']
+processing (0020)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/021.png']
+processing (0025)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/026.png']
+processing (0030)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/031.png']
+processing (0035)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/036.png']
+processing (0040)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/041.png']
+processing (0045)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/046.png']
+processing (0050)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/051.png']
+processing (0055)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/056.png']
+processing (0060)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/061.png']
+processing (0065)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/066.png']
+processing (0070)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/071.png']
+processing (0075)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/076.png']
+processing (0080)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/081.png']
+processing (0085)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/086.png']
+processing (0090)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/091.png']
+processing (0095)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/096.png']
+processing (0100)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/101.png']
+processing (0105)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/106.png']
+processing (0110)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/111.png']
+processing (0115)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/116.png']
+processing (0120)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/121.png']
+processing (0125)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/126.png']
+processing (0130)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/131.png']
+processing (0135)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/136.png']
+processing (0140)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/141.png']
+processing (0145)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/146.png']
+processing (0150)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/151.png']
+processing (0155)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/156.png']
+processing (0160)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/161.png']
+processing (0165)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/166.png']
+processing (0170)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/171.png']
+processing (0175)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/176.png']
+processing (0180)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/181.png']
+processing (0185)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/186.png']
+processing (0190)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/191.png']
+processing (0195)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/196.png']
+processing (0200)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/201.png']
+processing (0205)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/206.png']
+processing (0210)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/211.png']
+processing (0215)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/216.png']
+processing (0220)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/221.png']
+processing (0225)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/226.png']
+processing (0230)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/231.png']
+processing (0235)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/236.png']
+processing (0240)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/241.png']
+processing (0245)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/246.png']
+processing (0250)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/251.png']
+processing (0255)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/256.png']
+processing (0260)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/261.png']
+processing (0265)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/266.png']
+processing (0270)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/271.png']
+processing (0275)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/276.png']
+processing (0280)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/281.png']
+processing (0285)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/286.png']
+processing (0290)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/291.png']
+processing (0295)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/296.png']
+processing (0300)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/301.png']
+processing (0305)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/306.png']
+processing (0310)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/311.png']
+processing (0315)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/316.png']
+processing (0320)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/321.png']
+processing (0325)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/326.png']
+processing (0330)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/331.png']
+processing (0335)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/336.png']
+processing (0340)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/341.png']
+processing (0345)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/346.png']
+processing (0350)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/351.png']
+processing (0355)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/356.png']
+processing (0360)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/361.png']
+processing (0365)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/366.png']
+processing (0370)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/371.png']
+processing (0375)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/376.png']
+processing (0380)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/381.png']
+processing (0385)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/386.png']
+processing (0390)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/391.png']
+processing (0395)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/396.png']
+processing (0400)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/401.png']
+processing (0405)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/406.png']
+processing (0410)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/411.png']
+processing (0415)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/416.png']
+processing (0420)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/421.png']
+processing (0425)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/426.png']
+processing (0430)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/431.png']
+processing (0435)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/436.png']
+processing (0440)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/441.png']
+processing (0445)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/446.png']
+processing (0450)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/451.png']
+processing (0455)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/456.png']
+processing (0460)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/461.png']
+processing (0465)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/466.png']
+processing (0470)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/471.png']
+processing (0475)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/476.png']
+processing (0480)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/481.png']
+processing (0485)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/486.png']
+processing (0490)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/491.png']
+processing (0495)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/496.png']
+processing (0500)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/501.png']
+processing (0505)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/506.png']
+processing (0510)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/511.png']
+processing (0515)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/516.png']
+processing (0520)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/521.png']
+processing (0525)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/526.png']
+processing (0530)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/531.png']
+processing (0535)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/536.png']
+processing (0540)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/541.png']
+processing (0545)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/546.png']
+processing (0550)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/551.png']
+processing (0555)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/556.png']
+processing (0560)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/561.png']
+processing (0565)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/566.png']
+processing (0570)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/571.png']
+processing (0575)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/576.png']
+processing (0580)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/581.png']
+processing (0585)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/586.png']
+processing (0590)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/591.png']
+processing (0595)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/596.png']
+processing (0600)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/601.png']
+processing (0605)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/606.png']
+processing (0610)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/611.png']
+processing (0615)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/616.png']
+processing (0620)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/621.png']
+processing (0625)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/626.png']
+processing (0630)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/631.png']
+processing (0635)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/636.png']
+processing (0640)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/641.png']
+processing (0645)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA/trainA/646.png']

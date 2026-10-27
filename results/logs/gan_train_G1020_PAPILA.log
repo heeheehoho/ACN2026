@@ -1,0 +1,114 @@
+$ (cd /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN && '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/bin/python' train.py --dataroot '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/PAPILA' --name G1020_PAPILA --model ppfg --CUT_mode cut --checkpoints_dir '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints' --load_size 512 --crop_size 512 --n_epochs 2 --n_epochs_decay 0 --display_id 0 --no_html --save_epoch_freq 1)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py:143: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler()
+----------------- Options ---------------
+                 CUT_mode: cut                           	[default: ppfg]
+               batch_size: 1                             
+                    beta1: 0.5                           
+                    beta2: 0.999                         
+          checkpoints_dir: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints	[default: ./checkpoints]
+           continue_train: False                         
+                crop_size: 512                           
+                 dataroot: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/PAPILA	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 400                           
+               display_id: 0                             	[default: None]
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 512                           
+               easy_label: experiment_name               
+                    epoch: latest                        
+              epoch_count: 1                             
+          evaluation_freq: 5000                          
+        flip_equivariance: False                         
+                 gan_mode: lsgan                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+lambda_deep_feature_matching: 5                             
+  lambda_feature_matching: 2                             
+               lambda_fft: 1e-07                         
+lambda_shallow_feature_matching: 1                             
+                load_size: 512                           
+                       lr: 0.0002                        
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                    model: ppfg                          	[default: cut]
+                 n_epochs: 2                             	[default: 10]
+           n_epochs_decay: 0                             	[default: 10]
+               n_layers_D: 3                             
+                     name: G1020_PAPILA                  	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic                         
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks                
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: False                         
+                  no_html: True                          	[default: False]
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+          pretrained_name: None                          
+               print_freq: 100                           
+         random_scale_max: 3.0                           
+             save_by_iter: False                         
+          save_epoch_freq: 1                             	[default: 5]
+         save_latest_freq: 1000                          
+           serial_batches: False                         
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+         update_html_freq: 1000                          
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+model [CUTModel] was created
+The number of training images = 510
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/networks.py:562: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  patch_id = torch.tensor(patch_id, dtype=torch.long, device=feat.device)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/base_model.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  errors_ret[name] = float(getattr(self, 'loss_' + name))  # float(...) works for both scalar tensor and float number
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 11.378 M
+[Network F] Total number of parameters : 0.560 M
+[Network D] Total number of parameters : 2.765 M
+-----------------------------------------------
+(epoch: 1, iters: 100, time: 0.412, data: 0.071) G_GAN: 0.333 D_real: 0.142 D_fake: 0.250 G: 2.441 NCE: 3.924 NCE_Y: 5.278 
+(epoch: 1, iters: 200, time: 0.515, data: 0.001) G_GAN: 0.285 D_real: 0.367 D_fake: 0.167 G: 2.639 NCE: 3.840 NCE_Y: 4.163 
+(epoch: 1, iters: 300, time: 0.578, data: 0.001) G_GAN: 0.372 D_real: 0.221 D_fake: 0.249 G: 1.967 NCE: 2.951 NCE_Y: 3.840 
+(epoch: 1, iters: 400, time: 0.615, data: 0.001) G_GAN: 0.450 D_real: 0.131 D_fake: 0.219 G: 2.039 NCE: 3.071 NCE_Y: 3.719 
+(epoch: 1, iters: 500, time: 0.638, data: 0.001) G_GAN: 0.330 D_real: 0.246 D_fake: 0.137 G: 1.750 NCE: 2.282 NCE_Y: 2.508 
+saving the model at the end of epoch 1, iters 510
+End of epoch 1 / 2 	 Time Taken: 372 sec
+learning rate = 0.0002000
+(epoch: 2, iters: 90, time: 0.652, data: 0.001) G_GAN: 0.322 D_real: 0.306 D_fake: 0.225 G: 1.545 NCE: 1.957 NCE_Y: 2.624 
+(epoch: 2, iters: 190, time: 0.661, data: 0.001) G_GAN: 0.620 D_real: 0.688 D_fake: 0.769 G: 1.664 NCE: 1.808 NCE_Y: 1.783 
+(epoch: 2, iters: 290, time: 0.667, data: 0.001) G_GAN: 0.444 D_real: 0.178 D_fake: 0.184 G: 1.664 NCE: 1.814 NCE_Y: 2.422 
+(epoch: 2, iters: 390, time: 0.669, data: 0.001) G_GAN: 0.606 D_real: 0.231 D_fake: 0.532 G: 1.659 NCE: 1.748 NCE_Y: 2.396 
+(epoch: 2, iters: 490, time: 0.674, data: 0.001) G_GAN: 0.412 D_real: 0.084 D_fake: 0.357 G: 1.607 NCE: 1.632 NCE_Y: 2.281 
+saving the latest model (epoch 2, total_iters 1000)
+G1020_PAPILA
+saving the model at the end of epoch 2, iters 1020
+End of epoch 2 / 2 	 Time Taken: 345 sec
+learning rate = 0.0000000

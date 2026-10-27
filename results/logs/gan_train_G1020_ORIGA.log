@@ -1,0 +1,787 @@
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py:143: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler()
+----------------- Options ---------------
+                 CUT_mode: cut                           	[default: ppfg]
+               batch_size: 1                             
+                    beta1: 0.5                           
+                    beta2: 0.999                         
+          checkpoints_dir: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints	[default: ./checkpoints]
+           continue_train: False                         
+                crop_size: 512                           
+                 dataroot: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 400                           
+               display_id: 0                             	[default: None]
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 512                           
+               easy_label: experiment_name               
+                    epoch: latest                        
+              epoch_count: 1                             
+          evaluation_freq: 5000                          
+        flip_equivariance: False                         
+                 gan_mode: lsgan                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+lambda_deep_feature_matching: 5                             
+  lambda_feature_matching: 2                             
+               lambda_fft: 1e-07                         
+lambda_shallow_feature_matching: 1                             
+                load_size: 512                           
+                       lr: 0.0002                        
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                    model: ppfg                          	[default: cut]
+                 n_epochs: 10                            
+           n_epochs_decay: 10                            
+               n_layers_D: 3                             
+                     name: G1020_ORIGA                   	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic                         
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks                
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: False                         
+                  no_html: True                          	[default: False]
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+          pretrained_name: None                          
+               print_freq: 100                           
+         random_scale_max: 3.0                           
+             save_by_iter: False                         
+          save_epoch_freq: 20                            	[default: 5]
+         save_latest_freq: 1000                          
+           serial_batches: False                         
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+         update_html_freq: 1000                          
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+model [CUTModel] was created
+The number of training images = 650
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/networks.py:562: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  patch_id = torch.tensor(patch_id, dtype=torch.long, device=feat.device)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/base_model.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  errors_ret[name] = float(getattr(self, 'loss_' + name))  # float(...) works for both scalar tensor and float number
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 11.378 M
+[Network F] Total number of parameters : 0.560 M
+[Network D] Total number of parameters : 2.765 M
+-----------------------------------------------
+(epoch: 1, iters: 100, time: 0.422, data: 0.059) G_GAN: 0.357 D_real: 0.179 D_fake: 0.180 G: 2.560 NCE: 4.111 NCE_Y: 4.056 
+(epoch: 1, iters: 200, time: 0.521, data: 0.001) G_GAN: 0.388 D_real: 0.146 D_fake: 0.258 G: 2.432 NCE: 3.807 NCE_Y: 4.186 
+(epoch: 1, iters: 300, time: 0.568, data: 0.001) G_GAN: 0.382 D_real: 0.159 D_fake: 0.174 G: 2.790 NCE: 3.728 NCE_Y: 4.274 
+(epoch: 1, iters: 400, time: 0.598, data: 0.001) G_GAN: 0.672 D_real: 0.031 D_fake: 0.078 G: 2.351 NCE: 3.550 NCE_Y: 4.281 
+(epoch: 1, iters: 500, time: 0.615, data: 0.001) G_GAN: 0.646 D_real: 0.191 D_fake: 0.367 G: 2.741 NCE: 3.122 NCE_Y: 3.693 
+(epoch: 1, iters: 600, time: 0.626, data: 0.001) G_GAN: 0.570 D_real: 0.431 D_fake: 0.243 G: 2.162 NCE: 2.544 NCE_Y: 3.551 
+End of epoch 1 / 20 	 Time Taken: 455 sec
+learning rate = 0.0002000
+(epoch: 2, iters: 50, time: 0.632, data: 0.001) G_GAN: 0.671 D_real: 0.051 D_fake: 0.152 G: 1.825 NCE: 1.951 NCE_Y: 2.860 
+(epoch: 2, iters: 150, time: 0.636, data: 0.001) G_GAN: 0.894 D_real: 0.606 D_fake: 0.247 G: 1.978 NCE: 2.120 NCE_Y: 2.098 
+Traceback (most recent call last):
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/train.py", line 49, in <module>
+    model.optimize_parameters()   # calculate loss functions, get gradients, update network weights
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 223, in optimize_parameters
+    self.loss_G = self.compute_G_loss()
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 302, in compute_G_loss
+    self.loss_G = self.compute_mgda_loss()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 338, in compute_mgda_loss
+    loss.backward(retain_graph=True)
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED
+$ (cd /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN && '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/bin/python' train.py --dataroot '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA' --name G1020_ORIGA --model ppfg --CUT_mode cut --checkpoints_dir '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints' --load_size 512 --crop_size 512 --n_epochs 10 --n_epochs_decay 10 --display_id 0 --no_html --save_epoch_freq 20)
+$ (cd /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN && '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/bin/python' train.py --dataroot '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA' --name G1020_ORIGA --model ppfg --CUT_mode cut --checkpoints_dir '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints' --load_size 512 --crop_size 512 --n_epochs 10 --n_epochs_decay 10 --display_id 0 --no_html --save_epoch_freq 1)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py:143: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler()
+----------------- Options ---------------
+                 CUT_mode: cut                           	[default: ppfg]
+               batch_size: 1                             
+                    beta1: 0.5                           
+                    beta2: 0.999                         
+          checkpoints_dir: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints	[default: ./checkpoints]
+           continue_train: False                         
+                crop_size: 512                           
+                 dataroot: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 400                           
+               display_id: 0                             	[default: None]
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 512                           
+               easy_label: experiment_name               
+                    epoch: latest                        
+              epoch_count: 1                             
+          evaluation_freq: 5000                          
+        flip_equivariance: False                         
+                 gan_mode: lsgan                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+lambda_deep_feature_matching: 5                             
+  lambda_feature_matching: 2                             
+               lambda_fft: 1e-07                         
+lambda_shallow_feature_matching: 1                             
+                load_size: 512                           
+                       lr: 0.0002                        
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                    model: ppfg                          	[default: cut]
+                 n_epochs: 10                            
+           n_epochs_decay: 10                            
+               n_layers_D: 3                             
+                     name: G1020_ORIGA                   	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic                         
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks                
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: False                         
+                  no_html: True                          	[default: False]
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+          pretrained_name: None                          
+               print_freq: 100                           
+         random_scale_max: 3.0                           
+             save_by_iter: False                         
+          save_epoch_freq: 1                             	[default: 5]
+         save_latest_freq: 1000                          
+           serial_batches: False                         
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+         update_html_freq: 1000                          
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+model [CUTModel] was created
+The number of training images = 650
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/networks.py:562: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  patch_id = torch.tensor(patch_id, dtype=torch.long, device=feat.device)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/base_model.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  errors_ret[name] = float(getattr(self, 'loss_' + name))  # float(...) works for both scalar tensor and float number
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 11.378 M
+[Network F] Total number of parameters : 0.560 M
+[Network D] Total number of parameters : 2.765 M
+-----------------------------------------------
+(epoch: 1, iters: 100, time: 0.419, data: 0.052) G_GAN: 0.304 D_real: 0.309 D_fake: 0.261 G: 2.706 NCE: 4.004 NCE_Y: 4.297 
+(epoch: 1, iters: 200, time: 0.524, data: 0.001) G_GAN: 0.312 D_real: 0.313 D_fake: 0.209 G: 2.718 NCE: 4.248 NCE_Y: 4.224 
+(epoch: 1, iters: 300, time: 0.587, data: 0.001) G_GAN: 0.278 D_real: 0.299 D_fake: 0.145 G: 2.525 NCE: 4.239 NCE_Y: 4.381 
+(epoch: 1, iters: 400, time: 0.634, data: 0.001) G_GAN: 0.339 D_real: 0.228 D_fake: 0.172 G: 2.498 NCE: 3.846 NCE_Y: 5.287 
+(epoch: 1, iters: 500, time: 0.663, data: 0.001) G_GAN: 0.335 D_real: 0.147 D_fake: 0.184 G: 1.994 NCE: 2.469 NCE_Y: 3.221 
+(epoch: 1, iters: 600, time: 0.674, data: 0.001) G_GAN: 0.353 D_real: 0.349 D_fake: 0.134 G: 1.770 NCE: 2.055 NCE_Y: 2.914 
+saving the model at the end of epoch 1, iters 650
+End of epoch 1 / 20 	 Time Taken: 480 sec
+learning rate = 0.0002000
+(epoch: 2, iters: 50, time: 0.681, data: 0.001) G_GAN: 0.492 D_real: 0.104 D_fake: 0.082 G: 1.740 NCE: 1.926 NCE_Y: 2.929 
+(epoch: 2, iters: 150, time: 0.685, data: 0.001) G_GAN: 0.465 D_real: 0.369 D_fake: 0.069 G: 2.056 NCE: 1.777 NCE_Y: 2.568 
+(epoch: 2, iters: 250, time: 0.687, data: 0.001) G_GAN: 0.318 D_real: 0.425 D_fake: 0.151 G: 1.813 NCE: 1.915 NCE_Y: 1.654 
+(epoch: 2, iters: 350, time: 0.688, data: 0.001) G_GAN: 0.377 D_real: 0.088 D_fake: 0.248 G: 1.796 NCE: 1.880 NCE_Y: 2.008 
+saving the latest model (epoch 2, total_iters 1000)
+G1020_ORIGA
+(epoch: 2, iters: 450, time: 0.689, data: 0.001) G_GAN: 0.297 D_real: 0.288 D_fake: 0.201 G: 1.737 NCE: 1.553 NCE_Y: 2.411 
+(epoch: 2, iters: 550, time: 0.689, data: 0.001) G_GAN: 0.443 D_real: 0.241 D_fake: 0.145 G: 1.570 NCE: 1.611 NCE_Y: 2.045 
+(epoch: 2, iters: 650, time: 0.689, data: 0.001) G_GAN: 0.568 D_real: 0.075 D_fake: 0.159 G: 2.020 NCE: 1.700 NCE_Y: 2.468 
+saving the model at the end of epoch 2, iters 1300
+End of epoch 2 / 20 	 Time Taken: 449 sec
+learning rate = 0.0002000
+(epoch: 3, iters: 100, time: 0.690, data: 0.103) G_GAN: 1.057 D_real: 0.045 D_fake: 0.080 G: 1.743 NCE: 1.620 NCE_Y: 1.961 
+(epoch: 3, iters: 200, time: 0.690, data: 0.001) G_GAN: 0.338 D_real: 0.138 D_fake: 0.228 G: 2.506 NCE: 2.345 NCE_Y: 2.128 
+(epoch: 3, iters: 300, time: 0.690, data: 0.001) G_GAN: 0.313 D_real: 0.154 D_fake: 0.283 G: 1.485 NCE: 1.413 NCE_Y: 2.599 
+(epoch: 3, iters: 400, time: 0.690, data: 0.001) G_GAN: 0.264 D_real: 0.327 D_fake: 0.256 G: 1.377 NCE: 1.346 NCE_Y: 1.316 
+(epoch: 3, iters: 500, time: 0.690, data: 0.001) G_GAN: 0.320 D_real: 0.180 D_fake: 0.359 G: 1.439 NCE: 1.651 NCE_Y: 2.784 
+(epoch: 3, iters: 600, time: 0.690, data: 0.001) G_GAN: 0.275 D_real: 0.352 D_fake: 0.076 G: 1.353 NCE: 1.375 NCE_Y: 1.344 
+saving the model at the end of epoch 3, iters 1950
+End of epoch 3 / 20 	 Time Taken: 449 sec
+learning rate = 0.0002000
+(epoch: 4, iters: 50, time: 0.690, data: 0.001) G_GAN: 0.450 D_real: 0.138 D_fake: 0.418 G: 1.513 NCE: 1.492 NCE_Y: 1.821 
+saving the latest model (epoch 4, total_iters 2000)
+G1020_ORIGA
+Traceback (most recent call last):
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/train.py", line 49, in <module>
+    model.optimize_parameters()   # calculate loss functions, get gradients, update network weights
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 225, in optimize_parameters
+    self.scaler.scale(self.loss_G).backward()
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED
+$ (cd /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN && '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/bin/python' train.py --dataroot '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA' --name G1020_ORIGA --model ppfg --CUT_mode cut --checkpoints_dir '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints' --load_size 512 --crop_size 512 --n_epochs 10 --n_epochs_decay 10 --display_id 0 --no_html --save_epoch_freq 1 --continue_train --epoch_count 4)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py:143: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler()
+----------------- Options ---------------
+                 CUT_mode: cut                           	[default: ppfg]
+               batch_size: 1                             
+                    beta1: 0.5                           
+                    beta2: 0.999                         
+          checkpoints_dir: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints	[default: ./checkpoints]
+           continue_train: True                          	[default: False]
+                crop_size: 512                           
+                 dataroot: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 400                           
+               display_id: 0                             	[default: None]
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 512                           
+               easy_label: experiment_name               
+                    epoch: latest                        
+              epoch_count: 4                             	[default: 1]
+          evaluation_freq: 5000                          
+        flip_equivariance: False                         
+                 gan_mode: lsgan                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+lambda_deep_feature_matching: 5                             
+  lambda_feature_matching: 2                             
+               lambda_fft: 1e-07                         
+lambda_shallow_feature_matching: 1                             
+                load_size: 512                           
+                       lr: 0.0002                        
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                    model: ppfg                          	[default: cut]
+                 n_epochs: 10                            
+           n_epochs_decay: 10                            
+               n_layers_D: 3                             
+                     name: G1020_ORIGA                   	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic                         
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks                
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: False                         
+                  no_html: True                          	[default: False]
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+          pretrained_name: None                          
+               print_freq: 100                           
+         random_scale_max: 3.0                           
+             save_by_iter: False                         
+          save_epoch_freq: 1                             	[default: 5]
+         save_latest_freq: 1000                          
+           serial_batches: False                         
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+         update_html_freq: 1000                          
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+model [CUTModel] was created
+The number of training images = 650
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/networks.py:562: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  patch_id = torch.tensor(patch_id, dtype=torch.long, device=feat.device)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/base_model.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  errors_ret[name] = float(getattr(self, 'loss_' + name))  # float(...) works for both scalar tensor and float number
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_G.pth
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_F.pth
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_D.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 11.378 M
+[Network F] Total number of parameters : 0.560 M
+[Network D] Total number of parameters : 2.765 M
+-----------------------------------------------
+(epoch: 4, iters: 100, time: 0.419, data: 0.059) G_GAN: 0.592 D_real: 0.311 D_fake: 0.077 G: 1.578 NCE: 1.336 NCE_Y: 2.088 
+(epoch: 4, iters: 200, time: 0.513, data: 0.001) G_GAN: 0.238 D_real: 0.368 D_fake: 0.242 G: 1.325 NCE: 1.235 NCE_Y: 1.314 
+(epoch: 4, iters: 300, time: 0.564, data: 0.001) G_GAN: 0.473 D_real: 0.148 D_fake: 0.174 G: 1.542 NCE: 1.296 NCE_Y: 1.514 
+Traceback (most recent call last):
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/train.py", line 49, in <module>
+    model.optimize_parameters()   # calculate loss functions, get gradients, update network weights
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 223, in optimize_parameters
+    self.loss_G = self.compute_G_loss()
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 302, in compute_G_loss
+    self.loss_G = self.compute_mgda_loss()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 338, in compute_mgda_loss
+    loss.backward(retain_graph=True)
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: the launch timed out and was terminated
+Search for `cudaErrorLaunchTimeout' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+$ (cd /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN && '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/bin/python' train.py --dataroot '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA' --name G1020_ORIGA --model ppfg --CUT_mode cut --checkpoints_dir '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints' --load_size 512 --crop_size 512 --n_epochs 10 --n_epochs_decay 10 --display_id 0 --no_html --save_epoch_freq 1 --continue_train --epoch_count 4)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py:143: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler()
+----------------- Options ---------------
+                 CUT_mode: cut                           	[default: ppfg]
+               batch_size: 1                             
+                    beta1: 0.5                           
+                    beta2: 0.999                         
+          checkpoints_dir: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints	[default: ./checkpoints]
+           continue_train: True                          	[default: False]
+                crop_size: 512                           
+                 dataroot: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 400                           
+               display_id: 0                             	[default: None]
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 512                           
+               easy_label: experiment_name               
+                    epoch: latest                        
+              epoch_count: 4                             	[default: 1]
+          evaluation_freq: 5000                          
+        flip_equivariance: False                         
+                 gan_mode: lsgan                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+lambda_deep_feature_matching: 5                             
+  lambda_feature_matching: 2                             
+               lambda_fft: 1e-07                         
+lambda_shallow_feature_matching: 1                             
+                load_size: 512                           
+                       lr: 0.0002                        
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                    model: ppfg                          	[default: cut]
+                 n_epochs: 10                            
+           n_epochs_decay: 10                            
+               n_layers_D: 3                             
+                     name: G1020_ORIGA                   	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic                         
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks                
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: False                         
+                  no_html: True                          	[default: False]
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+          pretrained_name: None                          
+               print_freq: 100                           
+         random_scale_max: 3.0                           
+             save_by_iter: False                         
+          save_epoch_freq: 1                             	[default: 5]
+         save_latest_freq: 1000                          
+           serial_batches: False                         
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+         update_html_freq: 1000                          
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+model [CUTModel] was created
+The number of training images = 650
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/networks.py:562: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  patch_id = torch.tensor(patch_id, dtype=torch.long, device=feat.device)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/base_model.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  errors_ret[name] = float(getattr(self, 'loss_' + name))  # float(...) works for both scalar tensor and float number
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_G.pth
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_F.pth
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_D.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 11.378 M
+[Network F] Total number of parameters : 0.560 M
+[Network D] Total number of parameters : 2.765 M
+-----------------------------------------------
+(epoch: 4, iters: 100, time: 0.398, data: 0.058) G_GAN: 0.365 D_real: 0.438 D_fake: 0.159 G: 1.474 NCE: 1.334 NCE_Y: 1.526 
+(epoch: 4, iters: 200, time: 0.494, data: 0.001) G_GAN: 0.551 D_real: 0.067 D_fake: 0.083 G: 1.371 NCE: 1.313 NCE_Y: 1.983 
+(epoch: 4, iters: 300, time: 0.552, data: 0.001) G_GAN: 0.339 D_real: 0.367 D_fake: 0.537 G: 1.769 NCE: 1.546 NCE_Y: 1.702 
+(epoch: 4, iters: 400, time: 0.588, data: 0.001) G_GAN: 0.706 D_real: 0.102 D_fake: 0.133 G: 1.743 NCE: 1.288 NCE_Y: 1.638 
+(epoch: 4, iters: 500, time: 0.609, data: 0.001) G_GAN: 0.453 D_real: 0.322 D_fake: 0.081 G: 1.450 NCE: 1.391 NCE_Y: 1.414 
+(epoch: 4, iters: 600, time: 0.622, data: 0.001) G_GAN: 0.462 D_real: 0.259 D_fake: 0.072 G: 1.596 NCE: 1.227 NCE_Y: 1.993 
+saving the model at the end of epoch 4, iters 650
+End of epoch 4 / 20 	 Time Taken: 445 sec
+learning rate = 0.0002000
+(epoch: 5, iters: 50, time: 0.630, data: 0.001) G_GAN: 0.354 D_real: 0.256 D_fake: 0.152 G: 1.324 NCE: 1.304 NCE_Y: 1.813 
+(epoch: 5, iters: 150, time: 0.635, data: 0.001) G_GAN: 0.661 D_real: 0.098 D_fake: 0.073 G: 1.379 NCE: 1.103 NCE_Y: 2.068 
+(epoch: 5, iters: 250, time: 0.638, data: 0.001) G_GAN: 0.483 D_real: 0.220 D_fake: 0.057 G: 1.444 NCE: 1.221 NCE_Y: 1.081 
+(epoch: 5, iters: 350, time: 0.639, data: 0.001) G_GAN: 0.288 D_real: 0.639 D_fake: 0.287 G: 1.499 NCE: 1.228 NCE_Y: 2.120 
+saving the latest model (epoch 5, total_iters 1000)
+G1020_ORIGA
+(epoch: 5, iters: 450, time: 0.640, data: 0.001) G_GAN: 0.685 D_real: 0.147 D_fake: 0.129 G: 1.522 NCE: 1.244 NCE_Y: 1.831 
+(epoch: 5, iters: 550, time: 0.641, data: 0.001) G_GAN: 0.697 D_real: 0.063 D_fake: 0.108 G: 1.390 NCE: 1.065 NCE_Y: 2.922 
+(epoch: 5, iters: 650, time: 0.641, data: 0.001) G_GAN: 0.683 D_real: 0.092 D_fake: 0.115 G: 1.449 NCE: 1.133 NCE_Y: 1.332 
+saving the model at the end of epoch 5, iters 1300
+End of epoch 5 / 20 	 Time Taken: 418 sec
+learning rate = 0.0002000
+Traceback (most recent call last):
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/train.py", line 49, in <module>
+    model.optimize_parameters()   # calculate loss functions, get gradients, update network weights
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 225, in optimize_parameters
+    self.scaler.scale(self.loss_G).backward()
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED
+$ (cd /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN && '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/bin/python' train.py --dataroot '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA' --name G1020_ORIGA --model ppfg --CUT_mode cut --checkpoints_dir '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints' --load_size 512 --crop_size 512 --n_epochs 10 --n_epochs_decay 10 --display_id 0 --no_html --save_epoch_freq 1 --continue_train --epoch_count 6)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py:143: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler()
+----------------- Options ---------------
+                 CUT_mode: cut                           	[default: ppfg]
+               batch_size: 1                             
+                    beta1: 0.5                           
+                    beta2: 0.999                         
+          checkpoints_dir: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints	[default: ./checkpoints]
+           continue_train: True                          	[default: False]
+                crop_size: 512                           
+                 dataroot: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 400                           
+               display_id: 0                             	[default: None]
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 512                           
+               easy_label: experiment_name               
+                    epoch: latest                        
+              epoch_count: 6                             	[default: 1]
+          evaluation_freq: 5000                          
+        flip_equivariance: False                         
+                 gan_mode: lsgan                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+lambda_deep_feature_matching: 5                             
+  lambda_feature_matching: 2                             
+               lambda_fft: 1e-07                         
+lambda_shallow_feature_matching: 1                             
+                load_size: 512                           
+                       lr: 0.0002                        
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                    model: ppfg                          	[default: cut]
+                 n_epochs: 10                            
+           n_epochs_decay: 10                            
+               n_layers_D: 3                             
+                     name: G1020_ORIGA                   	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic                         
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks                
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: False                         
+                  no_html: True                          	[default: False]
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+          pretrained_name: None                          
+               print_freq: 100                           
+         random_scale_max: 3.0                           
+             save_by_iter: False                         
+          save_epoch_freq: 1                             	[default: 5]
+         save_latest_freq: 1000                          
+           serial_batches: False                         
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+         update_html_freq: 1000                          
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+model [CUTModel] was created
+The number of training images = 650
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/networks.py:562: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  patch_id = torch.tensor(patch_id, dtype=torch.long, device=feat.device)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/base_model.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  errors_ret[name] = float(getattr(self, 'loss_' + name))  # float(...) works for both scalar tensor and float number
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_G.pth
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_F.pth
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_D.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 11.378 M
+[Network F] Total number of parameters : 0.560 M
+[Network D] Total number of parameters : 2.765 M
+-----------------------------------------------
+(epoch: 6, iters: 100, time: 0.398, data: 0.055) G_GAN: 0.458 D_real: 0.264 D_fake: 0.341 G: 1.290 NCE: 0.986 NCE_Y: 1.302 
+(epoch: 6, iters: 200, time: 0.494, data: 0.001) G_GAN: 0.311 D_real: 0.342 D_fake: 0.145 G: 1.343 NCE: 1.071 NCE_Y: 1.412 
+(epoch: 6, iters: 300, time: 0.553, data: 0.001) G_GAN: 0.302 D_real: 0.225 D_fake: 0.202 G: 1.280 NCE: 1.079 NCE_Y: 1.070 
+(epoch: 6, iters: 400, time: 0.588, data: 0.001) G_GAN: 0.411 D_real: 0.538 D_fake: 0.045 G: 1.181 NCE: 1.071 NCE_Y: 1.093 
+(epoch: 6, iters: 500, time: 0.611, data: 0.001) G_GAN: 0.535 D_real: 0.228 D_fake: 0.037 G: 1.250 NCE: 1.025 NCE_Y: 2.319 
+(epoch: 6, iters: 600, time: 0.623, data: 0.001) G_GAN: 0.717 D_real: 0.012 D_fake: 0.121 G: 1.358 NCE: 1.031 NCE_Y: 1.039 
+saving the model at the end of epoch 6, iters 650
+End of epoch 6 / 20 	 Time Taken: 446 sec
+learning rate = 0.0002000
+(epoch: 7, iters: 50, time: 0.630, data: 0.001) G_GAN: 0.631 D_real: 0.124 D_fake: 0.040 G: 1.331 NCE: 1.027 NCE_Y: 1.797 
+(epoch: 7, iters: 150, time: 0.635, data: 0.001) G_GAN: 0.846 D_real: 0.031 D_fake: 0.214 G: 1.499 NCE: 1.189 NCE_Y: 1.688 
+Traceback (most recent call last):
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/train.py", line 49, in <module>
+    model.optimize_parameters()   # calculate loss functions, get gradients, update network weights
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 223, in optimize_parameters
+    self.loss_G = self.compute_G_loss()
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 302, in compute_G_loss
+    self.loss_G = self.compute_mgda_loss()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 338, in compute_mgda_loss
+    loss.backward(retain_graph=True)
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED
+$ (cd /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN && '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/bin/python' -c 'import sys, runpy, torch; torch.backends.cudnn.enabled = False; script = sys.argv[1]; sys.argv = sys.argv[1:]; runpy.run_path(script, run_name='"'"'__main__'"'"')' train.py --dataroot '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA' --name G1020_ORIGA --model ppfg --CUT_mode cut --checkpoints_dir '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints' --load_size 512 --crop_size 512 --n_epochs 10 --n_epochs_decay 10 --display_id 0 --no_html --save_epoch_freq 1 --continue_train --epoch_count 7)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py:143: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler()
+----------------- Options ---------------
+                 CUT_mode: cut                           	[default: ppfg]
+               batch_size: 1                             
+                    beta1: 0.5                           
+                    beta2: 0.999                         
+          checkpoints_dir: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints	[default: ./checkpoints]
+           continue_train: True                          	[default: False]
+                crop_size: 512                           
+                 dataroot: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/ORIGA	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+              display_env: main                          
+             display_freq: 400                           
+               display_id: 0                             	[default: None]
+            display_ncols: 4                             
+             display_port: 8097                          
+           display_server: http://localhost              
+          display_winsize: 512                           
+               easy_label: experiment_name               
+                    epoch: latest                        
+              epoch_count: 7                             	[default: 1]
+          evaluation_freq: 5000                          
+        flip_equivariance: False                         
+                 gan_mode: lsgan                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: True                          	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+lambda_deep_feature_matching: 5                             
+  lambda_feature_matching: 2                             
+               lambda_fft: 1e-07                         
+lambda_shallow_feature_matching: 1                             
+                load_size: 512                           
+                       lr: 0.0002                        
+           lr_decay_iters: 50                            
+                lr_policy: linear                        
+         max_dataset_size: inf                           
+                    model: ppfg                          	[default: cut]
+                 n_epochs: 10                            
+           n_epochs_decay: 10                            
+               n_layers_D: 3                             
+                     name: G1020_ORIGA                   	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic                         
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks                
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: False                         
+                  no_html: True                          	[default: False]
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+          pretrained_name: None                          
+               print_freq: 100                           
+         random_scale_max: 3.0                           
+             save_by_iter: False                         
+          save_epoch_freq: 1                             	[default: 5]
+         save_latest_freq: 1000                          
+           serial_batches: False                         
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+         update_html_freq: 1000                          
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+model [CUTModel] was created
+The number of training images = 650
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/networks.py:562: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  patch_id = torch.tensor(patch_id, dtype=torch.long, device=feat.device)
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/base_model.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  errors_ret[name] = float(getattr(self, 'loss_' + name))  # float(...) works for both scalar tensor and float number
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen runpy>", line 286, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "train.py", line 49, in <module>
+    model.optimize_parameters()   # calculate loss functions, get gradients, update network weights
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 223, in optimize_parameters
+    self.loss_G = self.compute_G_loss()
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 302, in compute_G_loss
+    self.loss_G = self.compute_mgda_loss()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py", line 338, in compute_mgda_loss
+    loss.backward(retain_graph=True)
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/lib/python3.12/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_G.pth
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_F.pth
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_ORIGA/latest_net_D.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 11.378 M
+[Network F] Total number of parameters : 0.560 M
+[Network D] Total number of parameters : 2.765 M
+-----------------------------------------------
+(epoch: 7, iters: 100, time: 0.623, data: 0.052) G_GAN: 0.530 D_real: 0.044 D_fake: 0.078 G: 1.360 NCE: 0.948 NCE_Y: 1.031 
+(epoch: 7, iters: 200, time: 0.931, data: 0.001) G_GAN: 0.694 D_real: 0.029 D_fake: 0.280 G: 1.444 NCE: 1.117 NCE_Y: 1.284 
+(epoch: 7, iters: 300, time: 1.118, data: 0.001) G_GAN: 0.794 D_real: 0.032 D_fake: 0.054 G: 1.573 NCE: 0.964 NCE_Y: 2.927 
+(epoch: 7, iters: 400, time: 1.233, data: 0.001) G_GAN: 0.296 D_real: 0.146 D_fake: 0.466 G: 1.442 NCE: 1.537 NCE_Y: 1.432 
+(epoch: 7, iters: 500, time: 1.310, data: 0.001) G_GAN: 0.465 D_real: 0.093 D_fake: 0.148 G: 1.262 NCE: 1.132 NCE_Y: 1.157 
+(epoch: 7, iters: 600, time: 1.366, data: 0.001) G_GAN: 0.490 D_real: 0.067 D_fake: 0.167 G: 1.386 NCE: 1.117 NCE_Y: 1.930 

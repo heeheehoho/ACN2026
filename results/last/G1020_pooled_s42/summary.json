@@ -1,0 +1,81 @@
+{
+ "n": 510,
+ "dice_od": {
+  "mean": 0.9244391282887946,
+  "sd": 0.05640813025889576,
+  "n_valid": 510
+ },
+ "dice_oc": {
+  "mean": 0.7939077029288567,
+  "sd": 0.11240237970635698,
+  "n_valid": 404
+ },
+ "iou_od": {
+  "mean": 0.8640154639957118,
+  "sd": 0.08687349304145643,
+  "n_valid": 510
+ },
+ "iou_oc": {
+  "mean": 0.6714990536587203,
+  "sd": 0.1434850080024719,
+  "n_valid": 404
+ },
+ "vcdr_pred": {
+  "mean": 0.4428379624214534,
+  "sd": 0.09328924519628468,
+  "n_valid": 510
+ },
+ "vcdr_gt": {
+  "mean": 0.3686959996727118,
+  "sd": 0.2084581571205129,
+  "n_valid": 510
+ },
+ "vcdr_abs_err": {
+  "mean": 0.1382484981946712,
+  "sd": 0.14340505239878143,
+  "n_valid": 510
+ },
+ "gt_cup_empty": {
+  "mean": 0.20784313725490197,
+  "sd": 0.40616232455990603,
+  "n_valid": 510
+ },
+ "refer_flip@0.6": {
+  "mean": 0.07058823529411765,
+  "sd": 0.2563872605380996,
+  "n_valid": 510
+ },
+ "refer_flip@0.7": {
+  "mean": 0.0196078431372549,
+  "sd": 0.13878451848451007,
+  "n_valid": 510
+ },
+ "official_dice": {
+  "mean": 0.7370503526596516,
+  "sd": 0.1836486511295633,
+  "n_valid": 510
+ },
+ "official_macro_f1_incl_background": 0.8606097885342509,
+ "official_macro_f1_fg_only": 0.7970354761964464,
+ "checkpoint": {
+  "path": "/home/heeho/\ubc14\ud0d5\ud654\uba74/Projects/\uace0\uae09\ub124\ud2b8\uc6cc\ud06c/ACN2026/FundusGAN/Fed_Unet_Seg/checkpoints/G1020_pooled_s42_last.pth",
+  "which": "last",
+  "round": 3,
+  "selection_score": null
+ },
+ "config": {
+  "target": "G1020",
+  "seed": 42,
+  "size": 256,
+  "rounds": 3,
+  "local_epochs": 1,
+  "target_split": "disjoint",
+  "alpha0": 0.3,
+  "sigma": 0.05,
+  "backbone": "official UNet",
+  "mode": "pooled",
+  "style": "none",
+  "fusion": false
+ },
+ "train_log": []
+}

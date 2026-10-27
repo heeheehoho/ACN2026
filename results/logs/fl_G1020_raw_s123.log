@@ -1,0 +1,50 @@
+$ (cd /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fed_Unet_Seg && '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/bin/python' main.py --client-config '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/configs/raw.json' --global-epochs 3 --local-epochs 1 --scale 0.5 --log_file '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/runs_official/fl_logs/G1020_raw_s123.xlsx')
+INFO: Using device: cuda
+INFO: Network architecture:
+	3 input channels
+	3 output channels (classes)
+	Transposed Conv upsampling
+INFO: Starting federated learning training with 3 clients
+INFO: Client 1 (ORIGA):
+INFO:   Image path: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/data_gt/ORIGA/images
+INFO:   Mask path: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/data_gt/ORIGA/masks
+INFO: Client 2 (REFUGE):
+INFO:   Image path: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/data_gt/REFUGE/images
+INFO:   Mask path: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/data_gt/REFUGE/masks
+INFO: Client 3 (PAPILA):
+INFO:   Image path: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/data_gt/PAPILA/images
+INFO:   Mask path: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/data_gt/PAPILA/masks
+INFO: 
+=== Global Epoch 1/3 ===
+INFO: Creating dataset with 650 examples
+INFO: Scanning mask files to determine unique values
+  0%|          | 0/650 [00:00<?, ?it/s]  0%|          | 0/650 [00:00<?, ?it/s]
+INFO: Creating dataset with 650 examples
+INFO: Scanning mask files to determine unique values
+  0%|          | 0/650 [00:00<?, ?it/s] 84%|████████▎ | 543/650 [00:00<00:00, 5317.43it/s]100%|██████████| 650/650 [00:00<00:00, 5511.64it/s]
+INFO: Unique mask values: [0, 1, 2]
+验证轮次:   0%|          | 0/130 [00:00<?, ?batch/s]验证轮次:   1%|          | 1/130 [00:00<00:33,  3.90batch/s]验证轮次:   7%|▋         | 9/130 [00:00<00:04, 30.12batch/s]验证轮次:  13%|█▎        | 17/130 [00:00<00:02, 45.54batch/s]验证轮次:  19%|█▉        | 25/130 [00:00<00:01, 54.98batch/s]验证轮次:  25%|██▌       | 33/130 [00:00<00:01, 61.22batch/s]验证轮次:  32%|███▏      | 41/130 [00:00<00:01, 65.18batch/s]验证轮次:  38%|███▊      | 49/130 [00:00<00:01, 67.86batch/s]验证轮次:  44%|████▍     | 57/130 [00:01<00:01, 70.01batch/s]验证轮次:  50%|█████     | 65/130 [00:01<00:00, 71.54batch/s]验证轮次:  56%|█████▌    | 73/130 [00:01<00:00, 72.21batch/s]验证轮次:  62%|██████▏   | 81/130 [00:01<00:00, 73.06batch/s]验证轮次:  68%|██████▊   | 89/130 [00:01<00:00, 73.11batch/s]验证轮次:  75%|███████▍  | 97/130 [00:01<00:00, 73.65batch/s]验证轮次:  81%|████████  | 105/130 [00:01<00:00, 73.82batch/s]验证轮次:  87%|████████▋ | 113/130 [00:01<00:00, 73.95batch/s]验证轮次:  93%|█████████▎| 121/130 [00:01<00:00, 74.34batch/s]验证轮次:  99%|█████████▉| 129/130 [00:01<00:00, 74.60batch/s]                                                              INFO: Client 1 Epoch 1/1 - Loss: 1.2070, Dice: 0.8063
+INFO: Creating dataset with 1200 examples
+INFO: Scanning mask files to determine unique values
+  0%|          | 0/1200 [00:00<?, ?it/s]  0%|          | 0/1200 [00:00<?, ?it/s]
+INFO: Creating dataset with 1200 examples
+INFO: Scanning mask files to determine unique values
+  0%|          | 0/1200 [00:00<?, ?it/s] 38%|███▊      | 462/1200 [00:00<00:00, 4519.10it/s] 81%|████████  | 969/1200 [00:00<00:00, 4788.55it/s]100%|██████████| 1200/1200 [00:00<00:00, 4905.67it/s]
+INFO: Unique mask values: [0, 1, 2]
+验证轮次:   0%|          | 0/240 [00:00<?, ?batch/s]验证轮次:   0%|          | 1/240 [00:00<01:27,  2.74batch/s]验证轮次:   4%|▍         | 9/240 [00:00<00:09, 23.81batch/s]验证轮次:   7%|▋         | 17/240 [00:00<00:05, 38.74batch/s]验证轮次:  10%|█         | 25/240 [00:00<00:04, 49.16batch/s]验证轮次:  14%|█▍        | 33/240 [00:00<00:03, 56.00batch/s]验证轮次:  17%|█▋        | 41/240 [00:00<00:03, 61.37batch/s]验证轮次:  20%|██        | 49/240 [00:01<00:02, 65.07batch/s]验证轮次:  24%|██▍       | 57/240 [00:01<00:02, 67.51batch/s]验证轮次:  27%|██▋       | 65/240 [00:01<00:02, 69.40batch/s]验证轮次:  30%|███       | 73/240 [00:01<00:02, 70.51batch/s]验证轮次:  34%|███▍      | 81/240 [00:01<00:02, 71.68batch/s]验证轮次:  37%|███▋      | 89/240 [00:01<00:02, 72.34batch/s]验证轮次:  40%|████      | 97/240 [00:01<00:01, 72.98batch/s]验证轮次:  44%|████▍     | 105/240 [00:01<00:01, 73.27batch/s]验证轮次:  47%|████▋     | 113/240 [00:01<00:01, 73.04batch/s]验证轮次:  50%|█████     | 121/240 [00:01<00:01, 73.45batch/s]验证轮次:  54%|█████▍    | 129/240 [00:02<00:01, 73.47batch/s]验证轮次:  57%|█████▋    | 137/240 [00:02<00:01, 73.26batch/s]验证轮次:  60%|██████    | 145/240 [00:02<00:01, 73.66batch/s]验证轮次:  64%|██████▍   | 153/240 [00:02<00:01, 73.33batch/s]验证轮次:  67%|██████▋   | 161/240 [00:02<00:01, 73.42batch/s]验证轮次:  70%|███████   | 169/240 [00:02<00:00, 73.59batch/s]验证轮次:  74%|███████▍  | 177/240 [00:02<00:00, 73.31batch/s]验证轮次:  77%|███████▋  | 185/240 [00:02<00:00, 73.15batch/s]验证轮次:  80%|████████  | 193/240 [00:02<00:00, 72.61batch/s]验证轮次:  84%|████████▍ | 201/240 [00:03<00:00, 73.16batch/s]验证轮次:  87%|████████▋ | 209/240 [00:03<00:00, 73.12batch/s]验证轮次:  90%|█████████ | 217/240 [00:03<00:00, 72.88batch/s]验证轮次:  94%|█████████▍| 225/240 [00:03<00:00, 73.43batch/s]验证轮次:  97%|█████████▋| 233/240 [00:03<00:00, 73.46batch/s]                                                              INFO: Client 2 Epoch 1/1 - Loss: 1.1062, Dice: 0.8546
+INFO: Creating dataset with 488 examples
+INFO: Scanning mask files to determine unique values
+  0%|          | 0/488 [00:00<?, ?it/s]  0%|          | 0/488 [00:00<?, ?it/s]
+INFO: Creating dataset with 488 examples
+INFO: Scanning mask files to determine unique values
+  0%|          | 0/488 [00:00<?, ?it/s]100%|██████████| 488/488 [00:00<00:00, 5344.83it/s]
+INFO: Unique mask values: [0, 1, 2]
+验证轮次:   0%|          | 0/97 [00:00<?, ?batch/s]验证轮次:   1%|          | 1/97 [00:00<00:45,  2.12batch/s]验证轮次:   8%|▊         | 8/97 [00:00<00:05, 17.68batch/s]验证轮次:  15%|█▌        | 15/97 [00:00<00:02, 30.39batch/s]验证轮次:  23%|██▎       | 22/97 [00:00<00:01, 40.56batch/s]验证轮次:  30%|██▉       | 29/97 [00:00<00:01, 48.24batch/s]验证轮次:  37%|███▋      | 36/97 [00:00<00:01, 53.90batch/s]验证轮次:  44%|████▍     | 43/97 [00:01<00:00, 57.92batch/s]验证轮次:  52%|█████▏    | 50/97 [00:01<00:00, 61.04batch/s]验证轮次:  59%|█████▉    | 57/97 [00:01<00:00, 63.21batch/s]验证轮次:  66%|██████▌   | 64/97 [00:01<00:00, 64.49batch/s]验证轮次:  73%|███████▎  | 71/97 [00:01<00:00, 64.33batch/s]验证轮次:  80%|████████  | 78/97 [00:01<00:00, 64.06batch/s]验证轮次:  88%|████████▊ | 85/97 [00:01<00:00, 64.26batch/s]验证轮次:  95%|█████████▍| 92/97 [00:01<00:00, 65.32batch/s]                                                            INFO: Client 3 Epoch 1/1 - Loss: 1.3240, Dice: 0.6104
+INFO: Creating dataset with 510 examples
+INFO: Scanning mask files to determine unique values
+  0%|          | 0/510 [00:00<?, ?it/s]  0%|          | 0/510 [00:00<?, ?it/s]
+INFO: Creating dataset with 510 examples
+INFO: Scanning mask files to determine unique values
+  0%|          | 0/510 [00:00<?, ?it/s]100%|██████████| 510/510 [00:00<00:00, 5253.53it/s]
+INFO: Unique mask values: [0, 1, 2]
+验证轮次:   0%|          | 0/510 [00:00<?, ?batch/s]验证轮次:   1%|          | 5/510 [00:00<00:10, 48.05batch/s]验证轮次:   2%|▏         | 11/510 [00:00<00:09, 53.08batch/s]验证轮次:   3%|▎         | 17/510 [00:00<00:09, 54.46batch/s]验证轮次:   5%|▍         | 23/510 [00:00<00:08, 54.64batch/s]验证轮次:   6%|▌         | 29/510 [00:00<00:08, 55.15batch/s]验证轮次:   7%|▋         | 35/510 [00:00<00:08, 55.04batch/s]验证轮次:   8%|▊         | 41/510 [00:00<00:08, 54.99batch/s]验证轮次:   9%|▉         | 47/510 [00:00<00:08, 55.15batch/s]

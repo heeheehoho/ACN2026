@@ -1,0 +1,310 @@
+$ (cd /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN && '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/venv/bin/python' test.py --dataroot '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE' --name G1020_REFUGE --model ppfg --CUT_mode cut --checkpoints_dir '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints' --load_size 512 --crop_size 512 --phase train --num_test 1000000 --results_dir '/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_results')
+/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/FundusGAN/Fundus_GAN/models/ppfg_model.py:143: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler()
+----------------- Options ---------------
+                 CUT_mode: cut                           	[default: ppfg]
+               batch_size: 1                             
+          checkpoints_dir: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints	[default: ./checkpoints]
+                crop_size: 512                           
+                 dataroot: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE	[default: placeholder]
+             dataset_mode: unaligned                     
+                direction: AtoB                          
+          display_winsize: 512                           
+               easy_label: experiment_name               
+                    epoch: latest                        
+                     eval: False                         
+        flip_equivariance: False                         
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: xavier                        
+                 input_nc: 3                             
+                  isTrain: False                         	[default: None]
+               lambda_GAN: 1.0                           
+               lambda_NCE: 1.0                           
+lambda_deep_feature_matching: 5                             
+  lambda_feature_matching: 2                             
+               lambda_fft: 1e-07                         
+lambda_shallow_feature_matching: 1                             
+                load_size: 512                           
+         max_dataset_size: inf                           
+                    model: ppfg                          	[default: cut]
+               n_layers_D: 3                             
+                     name: G1020_REFUGE                  	[default: experiment_name]
+                    nce_T: 0.07                          
+                  nce_idt: True                          
+nce_includes_all_negatives_from_minibatch: False                         
+               nce_layers: 0,4,8,12,16                   
+                      ndf: 64                            
+                     netD: basic                         
+                     netF: mlp_sample                    
+                  netF_nc: 256                           
+                     netG: resnet_9blocks                
+                      ngf: 64                            
+             no_antialias: False                         
+          no_antialias_up: False                         
+               no_dropout: True                          
+                  no_flip: False                         
+                    normD: instance                      
+                    normG: instance                      
+              num_patches: 256                           
+                 num_test: 1000000                       	[default: 1200]
+              num_threads: 4                             
+                output_nc: 3                             
+                    phase: train                         
+                pool_size: 0                             
+               preprocess: resize_and_crop               
+         random_scale_max: 3.0                           
+              results_dir: /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_results	[default: ./results/]
+           serial_batches: False                         
+stylegan2_G_num_downsampling: 1                             
+                   suffix:                               
+                  verbose: False                         
+----------------- End -------------------
+dataset [UnalignedDataset] was created
+dataset [UnalignedDataset] was created
+model [CUTModel] was created
+creating web directory /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_results/G1020_REFUGE/train_latest
+loading the model from /home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_checkpoints/G1020_REFUGE/latest_net_G.pth
+---------- Networks initialized -------------
+[Network G] Total number of parameters : 11.378 M
+-----------------------------------------------
+processing (0000)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0001.png']
+processing (0005)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0006.png']
+processing (0010)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0011.png']
+processing (0015)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0016.png']
+processing (0020)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0021.png']
+processing (0025)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0026.png']
+processing (0030)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0031.png']
+processing (0035)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0036.png']
+processing (0040)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0041.png']
+processing (0045)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0046.png']
+processing (0050)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0051.png']
+processing (0055)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0056.png']
+processing (0060)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0061.png']
+processing (0065)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0066.png']
+processing (0070)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0071.png']
+processing (0075)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0076.png']
+processing (0080)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0081.png']
+processing (0085)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0086.png']
+processing (0090)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0091.png']
+processing (0095)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0096.png']
+processing (0100)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0101.png']
+processing (0105)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0106.png']
+processing (0110)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0111.png']
+processing (0115)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0116.png']
+processing (0120)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0121.png']
+processing (0125)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0126.png']
+processing (0130)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0131.png']
+processing (0135)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0136.png']
+processing (0140)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0141.png']
+processing (0145)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0146.png']
+processing (0150)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0151.png']
+processing (0155)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0156.png']
+processing (0160)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0161.png']
+processing (0165)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0166.png']
+processing (0170)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0171.png']
+processing (0175)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0176.png']
+processing (0180)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0181.png']
+processing (0185)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0186.png']
+processing (0190)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0191.png']
+processing (0195)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0196.png']
+processing (0200)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0201.png']
+processing (0205)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0206.png']
+processing (0210)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0211.png']
+processing (0215)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0216.png']
+processing (0220)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0221.png']
+processing (0225)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0226.png']
+processing (0230)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0231.png']
+processing (0235)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0236.png']
+processing (0240)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0241.png']
+processing (0245)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0246.png']
+processing (0250)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0251.png']
+processing (0255)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0256.png']
+processing (0260)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0261.png']
+processing (0265)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0266.png']
+processing (0270)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0271.png']
+processing (0275)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0276.png']
+processing (0280)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0281.png']
+processing (0285)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0286.png']
+processing (0290)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0291.png']
+processing (0295)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0296.png']
+processing (0300)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0301.png']
+processing (0305)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0306.png']
+processing (0310)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0311.png']
+processing (0315)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0316.png']
+processing (0320)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0321.png']
+processing (0325)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0326.png']
+processing (0330)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0331.png']
+processing (0335)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0336.png']
+processing (0340)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0341.png']
+processing (0345)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0346.png']
+processing (0350)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0351.png']
+processing (0355)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0356.png']
+processing (0360)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0361.png']
+processing (0365)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0366.png']
+processing (0370)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0371.png']
+processing (0375)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0376.png']
+processing (0380)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0381.png']
+processing (0385)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0386.png']
+processing (0390)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0391.png']
+processing (0395)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/T0396.png']
+processing (0400)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0001.png']
+processing (0405)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0006.png']
+processing (0410)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0011.png']
+processing (0415)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0016.png']
+processing (0420)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0021.png']
+processing (0425)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0026.png']
+processing (0430)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0031.png']
+processing (0435)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0036.png']
+processing (0440)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0041.png']
+processing (0445)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0046.png']
+processing (0450)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0051.png']
+processing (0455)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0056.png']
+processing (0460)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0061.png']
+processing (0465)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0066.png']
+processing (0470)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0071.png']
+processing (0475)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0076.png']
+processing (0480)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0081.png']
+processing (0485)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0086.png']
+processing (0490)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0091.png']
+processing (0495)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0096.png']
+processing (0500)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0101.png']
+processing (0505)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0106.png']
+processing (0510)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0111.png']
+processing (0515)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0116.png']
+processing (0520)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0121.png']
+processing (0525)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0126.png']
+processing (0530)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0131.png']
+processing (0535)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0136.png']
+processing (0540)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0141.png']
+processing (0545)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0146.png']
+processing (0550)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0151.png']
+processing (0555)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0156.png']
+processing (0560)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0161.png']
+processing (0565)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0166.png']
+processing (0570)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0171.png']
+processing (0575)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0176.png']
+processing (0580)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0181.png']
+processing (0585)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0186.png']
+processing (0590)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0191.png']
+processing (0595)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0196.png']
+processing (0600)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0201.png']
+processing (0605)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0206.png']
+processing (0610)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0211.png']
+processing (0615)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0216.png']
+processing (0620)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0221.png']
+processing (0625)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0226.png']
+processing (0630)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0231.png']
+processing (0635)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0236.png']
+processing (0640)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0241.png']
+processing (0645)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0246.png']
+processing (0650)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0251.png']
+processing (0655)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0256.png']
+processing (0660)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0261.png']
+processing (0665)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0266.png']
+processing (0670)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0271.png']
+processing (0675)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0276.png']
+processing (0680)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0281.png']
+processing (0685)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0286.png']
+processing (0690)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0291.png']
+processing (0695)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0296.png']
+processing (0700)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0301.png']
+processing (0705)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0306.png']
+processing (0710)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0311.png']
+processing (0715)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0316.png']
+processing (0720)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0321.png']
+processing (0725)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0326.png']
+processing (0730)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0331.png']
+processing (0735)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0336.png']
+processing (0740)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0341.png']
+processing (0745)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0346.png']
+processing (0750)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0351.png']
+processing (0755)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0356.png']
+processing (0760)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0361.png']
+processing (0765)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0366.png']
+processing (0770)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0371.png']
+processing (0775)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0376.png']
+processing (0780)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0381.png']
+processing (0785)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0386.png']
+processing (0790)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0391.png']
+processing (0795)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/V0396.png']
+processing (0800)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/g0001.png']
+processing (0805)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/g0006.png']
+processing (0810)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/g0011.png']
+processing (0815)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/g0016.png']
+processing (0820)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/g0021.png']
+processing (0825)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/g0026.png']
+processing (0830)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/g0031.png']
+processing (0835)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/g0036.png']
+processing (0840)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0001.png']
+processing (0845)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0006.png']
+processing (0850)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0011.png']
+processing (0855)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0016.png']
+processing (0860)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0021.png']
+processing (0865)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0026.png']
+processing (0870)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0031.png']
+processing (0875)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0036.png']
+processing (0880)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0041.png']
+processing (0885)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0046.png']
+processing (0890)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0051.png']
+processing (0895)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0056.png']
+processing (0900)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0061.png']
+processing (0905)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0066.png']
+processing (0910)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0071.png']
+processing (0915)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0076.png']
+processing (0920)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0081.png']
+processing (0925)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0086.png']
+processing (0930)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0091.png']
+processing (0935)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0096.png']
+processing (0940)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0101.png']
+processing (0945)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0106.png']
+processing (0950)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0111.png']
+processing (0955)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0116.png']
+processing (0960)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0121.png']
+processing (0965)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0126.png']
+processing (0970)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0131.png']
+processing (0975)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0136.png']
+processing (0980)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0141.png']
+processing (0985)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0146.png']
+processing (0990)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0151.png']
+processing (0995)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0156.png']
+processing (1000)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0161.png']
+processing (1005)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0166.png']
+processing (1010)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0171.png']
+processing (1015)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0176.png']
+processing (1020)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0181.png']
+processing (1025)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0186.png']
+processing (1030)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0191.png']
+processing (1035)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0196.png']
+processing (1040)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0201.png']
+processing (1045)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0206.png']
+processing (1050)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0211.png']
+processing (1055)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0216.png']
+processing (1060)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0221.png']
+processing (1065)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0226.png']
+processing (1070)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0231.png']
+processing (1075)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0236.png']
+processing (1080)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0241.png']
+processing (1085)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0246.png']
+processing (1090)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0251.png']
+processing (1095)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0256.png']
+processing (1100)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0261.png']
+processing (1105)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0266.png']
+processing (1110)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0271.png']
+processing (1115)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0276.png']
+processing (1120)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0281.png']
+processing (1125)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0286.png']
+processing (1130)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0291.png']
+processing (1135)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0296.png']
+processing (1140)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0301.png']
+processing (1145)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0306.png']
+processing (1150)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0311.png']
+processing (1155)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0316.png']
+processing (1160)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0321.png']
+processing (1165)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0326.png']
+processing (1170)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0331.png']
+processing (1175)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0336.png']
+processing (1180)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0341.png']
+processing (1185)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0346.png']
+processing (1190)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0351.png']
+processing (1195)-th image... ['/home/heeho/바탕화면/Projects/고급네트워크/ACN2026/work/G1020/gan_data/REFUGE/trainA/n0356.png']
